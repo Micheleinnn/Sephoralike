@@ -27,7 +27,7 @@ export const SephoraProvider = ({
   const [brands, setBrands] = useState({});
 
   //api call. na clientovi se zavolala funkce get , jejiz parametr je endpoint url, druhy parametr je config, ktery obsahuje objekt params, coz jsou povinne props, aby tento endpoint mohl byt definovany, je to povinne z rapid api
-  const getCosmetic = async () => {
+  const fetchCosmetic = async () => {
     const responseCosmetic = await client.get("products/v2/list", {
       params: {
         number: "1",
@@ -41,8 +41,8 @@ export const SephoraProvider = ({
     setCosmetic(responseCosmetic.data);
   };
   // vytvoreni asynchronni funkce, tuto funkci sme vytvorili kvuli tomu, protoze UseEffect neumi pracovat s funkci async-await
-  const searchCosmetic = async () => {
-    await getCosmetic();
+  const getCosmetic = async () => {
+    await fetchCosmetic();
   };
   const searchBrands = async () => {
     const responseBrands = await client.get("brands/v2/list", {
@@ -58,14 +58,28 @@ export const SephoraProvider = ({
     setBrands(responseBrands.data);
   };
 
+  const getStaticProducts = async () => {
+    const response = await axios.get(
+      "https://xkn3gqgpxa.execute-api.eu-central-1.amazonaws.com/products"
+    );
+    const { data } = response || {};
+    const { body } = data || {};
+    const json = JSON.parse(body);
+
+    console.log(json, "json");
+    setCosmetic(json);
+
+    // json.data.map(...)
+  };
+
   return (
     <SephoraContext.Provider
       value={{
-        searchCosmetic,
         getCosmetic,
         searchBrands,
         cosmetic,
         brands,
+        getStaticProducts,
       }}
     >
       {children}

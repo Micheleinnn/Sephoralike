@@ -6,11 +6,10 @@ import { FaArrowUp } from "react-icons/fa";
 const ProductDetail = ({}) => {
   const { productId } = useParams(); //product id shodne s path id v main.tsx
 
-  const { cosmetic, searchCosmetic, brands, searchBrands } =
-    useSephoraContext();
+  const { cosmetic, getCosmetic, brands, searchBrands } = useSephoraContext();
 
   useEffect(() => {
-    searchCosmetic(); //getCosmetic
+    getCosmetic(); //getCosmetic
   }, []);
 
   console.log(productId, "slug", cosmetic);

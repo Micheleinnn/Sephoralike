@@ -8,21 +8,26 @@ import { NavLink } from "react-router-dom";
 
 const Eshop = () => {
   // vytahnuti polozek na strance eshop z contextu
-  const { cosmetic, searchCosmetic, brands, searchBrands } =
+  const { cosmetic, getCosmetic, brands, searchBrands, getStaticProducts } =
     useSephoraContext();
+
   useEffect(() => {
-    searchCosmetic();
+    getCosmetic();
+    getStaticProducts();
   }, []);
+  console.log(cosmetic, "cosmetic");
+
   return (
     <Layout>
       <TitleEshop />
       {/*// funkce map se vola na poli s nazvem cosmetic.data, produkt je iterovany prvek*/}
-      <Flex backgroundColor="white" width="100%" flexWrap="wrap">
+      <Flex backgroundColor="#f7f0ea" width="100%" flexWrap="wrap">
         {cosmetic?.data?.map((product, index) => {
           console.log(product, "product");
           return (
             <NavLink
               to={`/eshop/${product.id}`}
+              target="_self"
               className={({ isActive, isPending }) =>
                 isActive ? "active" : isPending ? "pending" : ""
               }
@@ -31,10 +36,9 @@ const Eshop = () => {
                 alignItems="center"
                 display="flex"
                 flexDirection="column"
-                w={{ sm: "100%", md: "50%" }}
+                w={{ sm: "100%", md: "100%" }}
                 p="1rem"
-                margin="0.5rem"
-                boxShadow="0 0 10px 0 rgba(0,0,0,0.5)"
+                // boxShadow="0 0 10px 0 rgba(0,0,0,0.1)"
                 key={product?.id + index}
               >
                 {/*<img src={product?.attributes?.['image-urls'][1]} alt={product?.title} />*/}
