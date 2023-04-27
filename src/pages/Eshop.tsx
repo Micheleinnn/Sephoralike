@@ -38,26 +38,39 @@ const Eshop = () => {
                 flexDirection="column"
                 w={{ sm: "100%", md: "100%" }}
                 p="1rem"
-                // boxShadow="0 0 10px 0 rgba(0,0,0,0.1)"
                 key={product?.id + index}
               >
+                <Box>
+                  <img
+                    src={product?.attributes?.["closeup-image-urls"][0]}
+                    alt={product?.title}
+                  />
+                  <Box textColor="black">
+                    <Text textAlign="center">{product?.attributes?.name}</Text>
+                    <Text textAlign="center">
+                      price:{product?.attributes?.price}
+                    </Text>
+                    <Text textAlign="center">
+                      rating:{product?.attributes?.rating}
+                    </Text>
+                    <Text textAlign="center">id:{product?.id}</Text>
+                  </Box>
+                </Box>
+
                 {/*<img src={product?.attributes?.['image-urls'][1]} alt={product?.title} />*/}
                 {/*<img src={product?.attributes?.['cart-image-urls'][0]} alt={product?.title}/>*/}
                 {/*<p>benefits:{product?.attributes?.benefits}</p>*/}
-                <Text>{product?.attributes?.name}</Text>
+
                 <Box>
-                  <Image
-                    src={product?.attributes?.["default-image-urls"][0]}
-                    alt={product?.title}
-                  />
-                  {/*<Image src={product?.attributes?.['cart-image-urls'][1]} alt={product?.title}/>*/}
                   {/*<Image src={product?.attributes?.['cart-image-urls'][2]} alt={product?.title}/>*/}
                   {/*<Image src={product?.attributes?.['cart-image-urls'][3]} alt={product?.title}/>*/}
                   {/*<Image src={product?.attributes?.['cart-image-urls'][4]} alt={product?.title}/>*/}
-                  {/*<Image src={product?.attributes?.['cart-image-urls'][5]} alt={product?.title}/>*/}
+                  <Image
+                    // src={product?.attributes?.["cart-image-urls"][5]}
+                    alt={product?.title}
+                  />
                 </Box>
-                <Text>price:{product?.attributes?.price}</Text>
-                <Text>rating:{product?.attributes?.rating}</Text>
+
                 {/*<img src={product?.attributes?.['default-image-urls'][1]} alt={product?.title}/>*/}
                 {/*<img src={product?.attributes?.['default-image-urls'][2]} alt={product?.title}/>*/}
                 {/*<img src={product?.attributes?.['default-image-urls'][3]} alt={product?.title}/>*/}
@@ -65,7 +78,6 @@ const Eshop = () => {
                 {/*<img src={product?.attributes?.['default-image-urls'][5]} alt={product?.title}/>*/}
                 {/*<img src={product?.attributes?.['default-image-urls'][6]} alt={product?.title}/>*/}
 
-                <Text>id:{product?.id}</Text>
                 {/*<img src={product?.attributes?.['zoom-image-urls'][1]} alt={product?.title}/>*/}
                 {/*<img src={product?.attributes?.['zoom-image-urls'][2]} alt={product?.title}/>*/}
                 {/*<img src={product?.attributes?.['zoom-image-urls'][3]} alt={product?.title}/>*/}
@@ -73,7 +85,6 @@ const Eshop = () => {
                 {/*<img src={product?.attributes?.['zoom-image-urls'][5]} alt={product?.title}/>*/}
                 {/*<img src={product?.attributes?.['zoom-image-urls'][6]} alt={product?.title}/>*/}
 
-                {/*<img src={product?.attributes?.['closeup-image-urls'][0]} alt={product?.title}/>*/}
                 {/*<img src={product?.attributes?.['featured-image-urls'][1]} alt={product?.title}/>*/}
               </Box>
             </NavLink>

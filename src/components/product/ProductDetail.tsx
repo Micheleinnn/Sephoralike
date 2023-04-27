@@ -53,10 +53,12 @@ const ProductDetail = ({}) => {
               alt={product?.title}
             />
           </Box>
-          <Text>price:{product?.attributes?.price}</Text>
-          <Text>rating:{product?.attributes?.rating}</Text>
-          <Text>id:{product?.id}</Text>
-          <Text>{product?.attributes?.description}</Text>
+          <Box textDecor="none">
+            <Text>price:{product?.attributes?.price}</Text>
+            <Text>rating:{product?.attributes?.rating}</Text>
+            <Text>id:{product?.id}</Text>
+            <Text>{product?.attributes?.description}</Text>
+          </Box>
         </Box>
       </Box>
     </Box>
