@@ -3,7 +3,6 @@ import React from "react";
 import { Flex, Heading } from "@chakra-ui/react";
 import ButtonShopNow from "../components/buttons/ButtonShopNow";
 import TitleFavorites from "../components/titles/TitleFavorites";
-import FourImage from "../components/images/FourImages";
 
 const HomePage = () => {
   return (

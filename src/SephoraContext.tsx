@@ -12,10 +12,6 @@ const client = axios.create({
     "X-RapidAPI-Host": import.meta.env.X_RapidAPI_Host,
   },
 });
-// xkn3gqgpxa.execute-api.eu-central-1.amazonaws.com/categories
-// xkn3gqgpxa.execute-api.eu-central-1.amazonaws.com/products
-// xkn3gqgpxa.execute-api.eu-central-1.amazonaws.com/products
-// xkn3gqgpxa.execute-api.eu-central-1.amazonaws.com/products/42762
 
 export const SephoraProvider = ({
   children,
